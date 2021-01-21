@@ -1,0 +1,126 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <input type="text"
+                    class="col-4 ms-auto"
+                    placeholder="Buscar empleado por ID"
+                    #txtTerm/>
+            <button class="btn btn-outline-primary ms-2 me-auto col-1"
+                    (click)="searchEmployee(txtTerm.value)">Buscar
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Titulo</th>
+                                <th>Teléfono</th>
+                                <th>Fecha inicio</th>
+                                <th>Cargo</th>
+                                <th>Salario</th>
+                                <th>Oficina</th>
+                                <th>Correo</th>
+                                <th>Dirección</th>
+                                <th>Dependencia</th>
+                                <th class="text-nowrap">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let employee of employees">
+                                <ng-container *ngIf="!editing || employee !== editingEmployee; else elseTemplate">
+                                    <td>{{employee.idEmployee}}</td>
+                                    <td>{{employee.firstName}}</td>
+                                    <td>{{employee.lastName}}</td>
+                                    <td>{{employee.educationalLevel}}</td>
+                                    <td>{{employee.phoneNumber}}</td>
+                                    <td>{{employee.startingDate | date}}</td>
+                                    <td>{{employee.role}}</td>
+                                    <td>{{employee.salary | currency}}</td>
+                                    <td>{{employee.office}}</td>
+                                    <td>{{employee.email}}</td>
+                                    <td>{{employee.address}}</td>
+                                    <td>{{employee.dependency}}</td>
+                                    <td class="text-nowrap text-center">
+                                        <a (click)="editEmployee(employee)" data-toggle="tooltip" class="cursor"
+                                            data-original-title="Editar">
+                                            <fa-icon class="text-dark me-4" [icon]="faPencilAlt"></fa-icon>
+                                        </a>
+                                        <a (click)="deleteEmployee(employee)" data-toggle="tooltip" class="cursor"
+                                            data-original-title="Borrar">
+                                            <fa-icon class="text-danger" [icon]="faUserTimes"></fa-icon>
+                                        </a>
+                                    </td>
+                                </ng-container>
+                                <ng-template #elseTemplate>
+                                    <td>
+                                        <input disabled type="number" class="form-control" placeholder="Id"
+                                            [(ngModel)]="employee.idEmployee" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Nombre"
+                                            [(ngModel)]="employee.firstName" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Apellido"
+                                            [(ngModel)]="employee.lastName" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Título"
+                                            [(ngModel)]="employee.educationalLevel" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Teléfono"
+                                            [(ngModel)]="employee.phoneNumber" />
+                                    </td>
+                                    <td>
+                                        <input disabled type="date" class="form-control" placeholder="Fecha inicio"
+                                            [(ngModel)]="employee.startingDate" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Cargo"
+                                            [(ngModel)]="employee.role" />
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" placeholder="Salario"
+                                            [(ngModel)]="employee.salary" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Oficina"
+                                            [(ngModel)]="employee.office" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Correo"
+                                            [(ngModel)]="employee.email" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Dirección"
+                                            [(ngModel)]="employee.address" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Dependencia"
+                                            [(ngModel)]="employee.dependency" />
+                                    </td>
+                                    <td class="text-nowrap text-center">
+                                        <a (click)="updateEmployee(employee)" data-toggle="tooltip" class="cursor"
+                                            data-original-title="Guardar">
+                                            <fa-icon class="text-dark" [icon]="faSave"></fa-icon>
+                                        </a>
+                                    </td>
+                                </ng-template>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

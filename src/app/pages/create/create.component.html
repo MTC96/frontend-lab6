@@ -1,0 +1,135 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Agregar empleado</h4>
+                    <form class="form pt-4"
+                          [formGroup]="employeeForm"
+                          (submit)="createEmployee()">
+                        <div class="row px-3">
+                            <div class="col-6 pe-3">
+                                <div class="form-group">
+                                    <label for="firstName">Nombre</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="firstName"
+                                               class="form-control"
+                                               id="firstName"
+                                               placeholder="Nombre del empleado">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Apellido</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="lastName"
+                                               class="form-control"
+                                               id="lastName"
+                                               placeholder="Apellido del empleado">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico</label>
+                                    <div class="input-group">
+                                        <input type="email"
+                                               formControlName="email"
+                                               class="form-control"
+                                               id="email"
+                                               placeholder="Correo electrónico">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Teléfono</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="phoneNumber"
+                                               class="form-control"
+                                               id="phone"
+                                               placeholder="Número telefónico">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="educationalLevel">Título</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="educationalLevel"
+                                               class="form-control"
+                                               id="educationalLevel"
+                                               placeholder="Título del empleado">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 ps-3">
+                                <div class="form-group">
+                                    <label for="role">Cargo</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="role"
+                                               class="form-control"
+                                               id="role"
+                                               placeholder="Cargo del empleado">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="salary">Salario</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="salary"
+                                               class="form-control"
+                                               id="salary"
+                                               placeholder="Salario del empleado">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="office">Oficina</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="office"
+                                               class="form-control"
+                                               id="office"
+                                               placeholder="Número de oficina">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dependency">Dependencia</label>
+                                    <div class="input-group">
+                                        <input type="text"
+                                               formControlName="dependency"
+                                               class="form-control"
+                                               id="dependency"
+                                               placeholder="Dependencia">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="startingDate">Fecha inicio</label>
+                                    <div class="input-group">
+                                        <input type="date"
+                                               formControlName="startingDate"
+                                               class="form-control"
+                                               id="startingDate"
+                                               placeholder="Fecha de inicio">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Dirección</label>
+                                <div class="input-group">
+                                    <input type="text"
+                                           formControlName="address"
+                                           class="form-control"
+                                           id="address"
+                                           placeholder="Dirección del empleado">
+                                </div>
+                            </div>
+                            <button type="submit"
+                                    class="btn btn-success mt-4 mb-1 mx-auto col-6"
+                                    [disabled]="!employeeForm.valid">Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
